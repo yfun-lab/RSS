@@ -37,7 +37,7 @@ jobs:
           git config --global user.email "icolabot@e.yfun.top"
           git config --global user.name "iColaBot"
           npm i prettier -g
-          prettier --ignore-path ".github/**/*.yml" --write .
+          prettier --ignore-path ".github/" --write .
           git add .
           git commit -m ":art: Made Code Prettier"
           
