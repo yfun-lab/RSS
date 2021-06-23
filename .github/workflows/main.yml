@@ -34,10 +34,12 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install & Commit
         run: |
+          git config --global user.email "icolabot@e.yfun.top"
+          git config --global user.name "iColaBot"
           npm i prettier -g
           prettier --write .
           git add .
-          git commit -m ":art: Made Code Prettier"
+          git commit --allow-empty -m ":art: Made Code Prettier"
           
       - name: Push
         run: |
