@@ -42,12 +42,18 @@ jobs:
           git config --global user.name "iColaBot"
           npm i --save
           node index.js
-          cd src/
-          git init
-          git add -A
-          git commit -m "Update RSS"
+          #cd src/
+          #git init
+          #git add -A
+          #git commit -m "Update RSS"
           
       - name: Push
         run: |
-          git remote add origin https://github.com/yfun-lab/RSS.git
-          git push origin gh-pages -f
+          #git remote add origin https://github.com/yfun-lab/RSS.git
+          #git push origin gh-pages -f
+          
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: ./src
