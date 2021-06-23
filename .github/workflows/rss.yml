@@ -48,4 +48,5 @@ jobs:
           
       - name: Push
         run: |
+          git remote add origin https://github.com/yfun-lab/RSS
           git push origin gh-pages -f
