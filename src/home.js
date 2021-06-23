@@ -3,13 +3,13 @@ var cardElement = document.getElementById("card");
  * Get RSS List
  */
 fetch("rss.json?t=" + new Date().getTime() + Math.random(), {})
-  .then((res) => res.json())
-  .then((json) => {
-    document.getElementById("loading-spinner").remove();
-    for (let i = 0; i < json.length; i++) {
-      let ele = document.createElement("div");
-      ele.className = "item";
-      ele.innerHTML = `
+    .then((res) => res.json())
+    .then((json) => {
+        document.getElementById("loading-spinner").remove();
+        for (let i = 0; i < json.length; i++) {
+            let ele = document.createElement("div");
+            ele.className = "item";
+            ele.innerHTML = `
             <div class="content">
                 <h3><a href="${json[i].link}" target="_blank" rel="noreferrer noopener">${json[i].title}</a></h3>
                 <p class="time">${json[i].date}</p>
@@ -22,17 +22,17 @@ fetch("rss.json?t=" + new Date().getTime() + Math.random(), {})
                 </svg>
             </div>
             `;
-      cardElement.appendChild(ele);
-    }
-  });
+            cardElement.appendChild(ele);
+        }
+    });
 
 function preview(content) {
-  alertify
-    .dialog("alert")
-    .set({
-      basic: true,
-      transitionOff: true,
-      message: content.innerHTML,
-    })
-    .show();
+    alertify
+        .dialog("alert")
+        .set({
+            basic: true,
+            transitionOff: true,
+            message: content.innerHTML,
+        })
+        .show();
 }
