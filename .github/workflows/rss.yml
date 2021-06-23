@@ -37,16 +37,17 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install & Commit
         run: |
+          export TZ='Asia/Shanghai'
           git config --global user.email "icolabot@e.yfun.top"
           git config --global user.name "iColaBot"
           npm i --save
           node index.js
           cd src/
           git init
-          git add .
+          git add -A
           git commit -m "Update RSS"
           
       - name: Push
         run: |
-          git remote add origin https://github.com/yfun-lab/RSS
+          git remote add origin https://github.com/yfun-lab/RSS.git
           git push origin gh-pages -f
