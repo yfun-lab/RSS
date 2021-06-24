@@ -5,19 +5,9 @@ const fs = require("fs");
  * url: RSS Feed 链接
  * limit: 最大获取数限制
  */
-const config = [
-    {
-        url: "https://blog.yfun.top/atom.xml",
-        limit: 10,
-    },
-    { url: "https://blog.cyfan.top/atom.xml", limit: 10 },
-    { url: "https://blog.skk.moe/atom.xml", limit: 10 },
-    { url: "https://flyhigher.top/feed", limit: 10 },
-    {
-        url: "https://sspai.com/feed",
-        limit: 15,
-    },
-];
+
+const config = JSON.parse(fs.readFileSync("./config.json", "utf-8"));
+
 
 var rssJSON = [];
 /**
@@ -34,7 +24,13 @@ const loadRSS = () => {
                     encodeURIComponent(rssInfo.url)
             );
             var rssContent = JSON.parse(res.getBody());
-            for (let n = 0; n < rssContent.items.length; n++) {
+
+            let rssLength =
+                rssContent.items.length > rssInfo.limit
+                    ? rssInfo.limit
+                    : rssContent.items.length;
+
+            for (let n = 0; n < rssLength; n++) {
                 let rssData = {
                     title: rssContent.items[n].title,
                     date: rssContent.items[n].pubDate,
@@ -52,15 +48,14 @@ const loadRSS = () => {
         console.error(e);
     }
 };
+loadRSS();
+
 /**
- * 日期降序排序
+ * 日期排序
  */
 function sortDownDate(a, b) {
     return Date.parse(b.date) - Date.parse(a.date);
 }
-
-loadRSS();
-
 rssJSON = JSON.stringify(rssJSON.sort(sortDownDate));
 
 /**
