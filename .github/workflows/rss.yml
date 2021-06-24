@@ -42,7 +42,8 @@ jobs:
           git config --global user.name "iColaBot"
           npm i --save
           node index.js
-          #cd src/
+          cd src/
+          echo "rss.yfun.top" > CNAME
           #git init
           #git add -A
           #git commit -m "Update RSS"
