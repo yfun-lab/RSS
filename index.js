@@ -10,6 +10,9 @@ const config = [
         url: "https://blog.yfun.top/atom.xml",
         limit: 10,
     },
+    {url:"https://blog.cyfan.top/atom.xml",limit:10},
+    {url:"https://blog.skk.moe/atom.xml",limit:10},
+    {url:"https://flyhigher.top/feed",limit:10},
     {
         url: "https://sspai.com/feed",
         limit: 15,
