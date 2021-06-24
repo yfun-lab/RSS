@@ -8,7 +8,6 @@ const fs = require("fs");
 
 const config = JSON.parse(fs.readFileSync("./config.json", "utf-8"));
 
-
 var rssJSON = [];
 /**
  * 通过 RSS2JSON 将 RSS 转换为 JSON
