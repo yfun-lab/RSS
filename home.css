@@ -56,7 +56,7 @@ body {
 .pre-des,
 .pre-des * {
     max-width: 100%;
-    overflow: auto;
+    overflow: unset;
 }
 .pre-des ul,
 .pre-des li {
