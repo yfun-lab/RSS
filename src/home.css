@@ -12,8 +12,6 @@ body {
     outline: none !important;
 }
 
-/* Card */
-
 .card {
     /* box-shadow: 0 4px 10px rgba(0, 2, 4, 0.06), 0 0 1px rgba(0, 2, 4, 0.11); */
     padding: 5px 30px 30px;
@@ -29,10 +27,9 @@ body {
     display: flex;
     line-height: 1.8rem;
 }
-/* .card .hr {
-	border-bottom: 0.1rem solid #ddd;
-	padding-top: 25px;
-} */
+.card .hr {
+    margin-top: 2rem;
+}
 .card .item .time {
     color: #858585;
 }

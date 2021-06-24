@@ -2,7 +2,26 @@ var cardElement = document.getElementById("card");
 /**
  * Get RSS List
  */
-fetch("rss.json?t=" + new Date().getTime() + Math.random(), {})
+const setLS = (k, v) => {
+    try {
+        return localStorage.setItem(k, v);
+    } catch (e) {
+        console.error("您的浏览器似乎不支持 localStorage~");
+        console.error(e);
+    }
+};
+
+const getLS = (k) => {
+    try {
+        return localStorage.getItem(k);
+    } catch (e) {
+        console.error("您的浏览器似乎不支持 localStorage~");
+        console.error(e);
+    }
+};
+
+var rssURL = getLS("rssURL") ? getLS("rssURL") : "./rss.json";
+fetch(rssURL + "?t=" + new Date().getTime() + Math.random(), {})
     .then((res) => res.json())
     .then((json) => {
         document.getElementById("loading-spinner").remove();
