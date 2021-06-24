@@ -4,8 +4,12 @@
     "description": "",
     "main": "index.js",
     "author": "YFun (@oCoke) <awa@outlook.ie>",
+    "scripts": {
+        "dev": "live-server --no-browser --port=3000 --watch=."
+    },
     "license": "MIT",
     "dependencies": {
+        "live-server": "^1.2.1",
         "sync-request": "^6.1.0"
     }
 }
