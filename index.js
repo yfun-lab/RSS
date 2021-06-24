@@ -23,7 +23,7 @@ const loadRSS = () => {
                     encodeURIComponent(rssInfo.url)
             );
             var rssContent = JSON.parse(res.getBody());
-            if (rssInfo.limit == 0) rssInfo.limit = rssContent.items.length
+            if (rssInfo.limit == 0) rssInfo.limit = rssContent.items.length;
             let rssLength =
                 rssContent.items.length > rssInfo.limit
                     ? rssInfo.limit
