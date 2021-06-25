@@ -124,3 +124,6 @@ body {
 .card .item .content h3 a:hover {
     opacity: 0.8;
 }
+.card .item .content h3 {
+    word-break: break-all;
+}
