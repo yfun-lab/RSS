@@ -1,6 +1,6 @@
 var cardElement = document.getElementById("card");
 /**
- * Get RSS List
+ * 对浏览器 localStorage 的封装
  */
 const setLS = (k, v) => {
     try {
@@ -20,12 +20,16 @@ const getLS = (k) => {
     }
 };
 
+/* Fetch URL，获取相关 RSS 数据 */
+/* 在 RSS URL 后加入时间戳和随机数，防止缓存 */
 var rssURL = getLS("rssURL") ? getLS("rssURL") : "./rss.json";
 fetch(rssURL + "?t=" + new Date().getTime() + Math.random(), {})
     .then((res) => res.json())
     .then((json) => {
-        document.getElementById("loading-spinner").remove();
-        for (let i = 0; i < json.length; i++) {
+	// 去除加载动画
+        document.getElementById("loading-spinner").remove();        
+	// 遍历 JSON，新建标签
+	for (let i = 0; i < json.length; i++) {
             let ele = document.createElement("div");
             ele.className = "item";
             ele.innerHTML = `
@@ -41,10 +45,14 @@ fetch(rssURL + "?t=" + new Date().getTime() + Math.random(), {})
                 </svg>
             </div>
             `;
+	    // 追加元素
             cardElement.appendChild(ele);
         }
     });
 
+/**
+ * 预览文章
+ */
 function preview(content) {
     alertify
         .dialog("alert")
