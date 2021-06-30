@@ -1,16 +1,3 @@
-// function getConfig() {
-//     let apiURL = document.getElementById("apiURL_input").value;
-//     let apiKEY = document.getElementById("apiKEY_input").value;
-//     fetch(apiURL + "config/get?token=" + apiKEY, {
-//         method: "GET",
-//         mode: "no-cors",
-//     })
-//         .then(res => res.json())
-//         .then((json) => {
-//             console.log(json);
-//         });
-// }
-
 const setLS = (k, v) => {
     try {
         return localStorage.setItem(k, v);
