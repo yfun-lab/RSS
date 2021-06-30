@@ -26,10 +26,10 @@ var rssURL = getLS("rssURL") ? getLS("rssURL") : "./rss.json";
 fetch(rssURL + "?t=" + new Date().getTime() + Math.random(), {})
     .then((res) => res.json())
     .then((json) => {
-	// 去除加载动画
-        document.getElementById("loading-spinner").remove();        
-	// 遍历 JSON，新建标签
-	for (let i = 0; i < json.length; i++) {
+        // 去除加载动画
+        document.getElementById("loading-spinner").remove();
+        // 遍历 JSON，新建标签
+        for (let i = 0; i < json.length; i++) {
             let ele = document.createElement("div");
             ele.className = "item";
             ele.innerHTML = `
@@ -45,7 +45,7 @@ fetch(rssURL + "?t=" + new Date().getTime() + Math.random(), {})
                 </svg>
             </div>
             `;
-	    // 追加元素
+            // 追加元素
             cardElement.appendChild(ele);
         }
     });
