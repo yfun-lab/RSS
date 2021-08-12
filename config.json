@@ -12,6 +12,5 @@
     {
         "url": "https://www.zhihu.com/rss",
         "limit": 15
-    },
-    { "url": "http://feeds.feedburner.com/zhihu-daily", "limit": 15 }
+    }
 ]
